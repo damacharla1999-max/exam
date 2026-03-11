@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Sidebar from "./components/Sidebar"
 import Home from "./components/Home"
 import Registration from "./components/Registration"
@@ -14,63 +15,49 @@ import './App.css'
 
 function App(){
 
-const [page,setPage]=useState("home")
 const [user,setUser]=useState(null)
 const [result,setResult]=useState(null)
 const [subject,setSubject]=useState("react")
 
-function renderPage(){
-
-switch(page){
-
-case "home":
-return <Home/>
-
-case "registration":
-return <Registration/>
-
-case "students":
-return <Students/>
-
-case "loginexam":
-return <LoginExam setUser={setUser} setPage={setPage}/>
-
-case "subjectselect":
-return <SubjectSelect setSubject={setSubject} setPage={setPage}/>
-
-case "exam":
-return <Exam user={user} subject={subject} setResult={setResult} setPage={setPage}/>
-
-case "results":
-return <Results result={result} user={user} subject={subject}/>
-
-case "rank":
-return <RankCard result={result} user={user} subject={subject}/>
-
-case "certificate":
-return <Certificate result={result} user={user} subject={subject}/>
-
-case "history":
-return <History user={user}/>
-
-default:
-return <Home/>
-
-}
-
-}
-
 return(
+
+<Router>
 
 <div className="layout">
 
-<Sidebar setPage={setPage}/>
+<Sidebar/>
 
 <div className="content">
-{renderPage()}
+
+<Routes>
+
+<Route path="/" element={<Home/>} />
+
+<Route path="/registration" element={<Registration/>} />
+
+<Route path="/students" element={<Students/>} />
+
+<Route path="/loginexam" element={<LoginExam setUser={setUser}/>} />
+
+<Route path="/subjectselect" element={<SubjectSelect setSubject={setSubject}/>} />
+
+<Route path="/exam" element={<Exam user={user} subject={subject} setResult={setResult}/>} />
+
+<Route path="/results" element={<Results result={result} user={user} subject={subject}/>} />
+
+<Route path="/rank" element={<RankCard result={result} user={user} subject={subject}/>} />
+
+<Route path="/certificate" element={<Certificate result={result} user={user} subject={subject}/>} />
+
+<Route path="/history" element={<History user={user}/>} />
+
+</Routes>
+
 </div>
 
 </div>
+
+</Router>
 
 )
 

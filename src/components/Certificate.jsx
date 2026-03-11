@@ -19,8 +19,8 @@ useEffect(() => {
         month: 'long', 
         day: 'numeric' 
       }),
-      instructor: 'Vamsikrishna Chekuri',
-      coordinator: 'Anooshbabu'
+      instructor: 'NagavaraPrakash Murturi',
+      coordinator: 'Ajay Kumar'
     };
     
     saveCertificate(user.id || user.name, subject, certificateData);
@@ -113,13 +113,13 @@ return(
     <div className="certificate-footer">
       <div className="signature-section">
         <div className="signature">
-          <div className="signature-visual vamsi-signature"></div>
-          <div className="signature-name">Vamsikrishna Chekuri</div>
+          <div className="signature-visual NagavaraPrakash-Murturi-signature"></div>
+          <div className="signature-name">NagavaraPrakash Murturi</div>
           <div className="signature-title">Instructor</div>
         </div>
         <div className="signature">
-          <div className="signature-visual anoosh-signature"></div>
-          <div className="signature-name">Anooshbabu</div>
+          <div className="signature-visual Ajay-Kumar-signature"></div>
+          <div className="signature-name">Ajay Kumar</div>
           <div className="signature-title">Training Coordinator</div>
         </div>
       </div>
